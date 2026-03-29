@@ -1,33 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NEON STUDIO PRO</title>
+  <title>Neon Studio Ultimate</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
     <header class="topbar">
       <div class="brand">
-        <div class="logo">NEON STUDIO PRO</div>
+        <div class="logo">NEON STUDIO ULTIMATE</div>
         <div class="subtitle">browser DAW • multi-instrument • pro features</div>
       </div>
 
       <div class="transport">
-        <button id="playBtn" class="btn play">▶</button>
-        <button id="stopBtn" class="btn stop">■</button>
+        <button id="playBtn" class="btn play">▶ PLAY</button>
+        <button id="stopBtn" class="btn stop">■ STOP</button>
         <div class="bpm">
           <label>BPM</label>
-          <input id="bpmInput" type="number" min="40" max="240" value="120" />
+          <input id="bpmInput" type="number" min="30" max="300" value="120" />
         </div>
-        <div class="clock-led" id="clockLed"></div>
+        <div class="tempo-controls">
+          <label>Swing <input id="swing" type="range" min="0" max="0.5" step="0.01" value="0.0"></label>
+        </div>
       </div>
 
       <div class="global-controls">
-        <button id="savePattern" class="btn small">Save Pattern</button>
-        <button id="loadPattern" class="btn small">Load Pattern</button>
-        <button id="toggleMidi" class="btn small">MIDI</button>
+        <button id="newTrack" class="btn small">New Track</button>
+        <button id="saveProject" class="btn small">Save</button>
+        <button id="loadProject" class="btn small">Load</button>
+        <button id="recordBtn" class="btn small">● RECORD</button>
       </div>
     </header>
 
@@ -36,14 +39,18 @@
         <div class="tracks-list" id="tracksList"></div>
         <div class="instruments-palette">
           <h4>Instruments</h4>
-          <button data-inst="piano" class="inst-btn">Grand Piano</button>
-          <button data-inst="epiano" class="inst-btn">Electric Piano</button>
-          <button data-inst="analog" class="inst-btn">Analog Poly</button>
-          <button data-inst="fm" class="inst-btn">FM Lead</button>
-          <button data-inst="bass" class="inst-btn">Bass Synth</button>
-          <button data-inst="drum" class="inst-btn">Drum Sampler</button>
-          <button data-inst="pad" class="inst-btn">Orchestral Pad</button>
-          <button data-inst="sampler" class="inst-btn">Sampler</button>
+          <div class="inst-grid">
+            <button data-inst="piano" class="inst-btn">Grand Piano (multi-vel)</button>
+            <button data-inst="epiano" class="inst-btn">Electric Piano</button>
+            <button data-inst="analog" class="inst-btn">Analog Poly</button>
+            <button data-inst="fm" class="inst-btn">FM Lead</button>
+            <button data-inst="bass" class="inst-btn">Bass Synth</button>
+            <button data-inst="drum" class="inst-btn">Drum Sampler</button>
+            <button data-inst="pad" class="inst-btn">Orchestral Pad</button>
+            <button data-inst="granular" class="inst-btn">Granular</button>
+            <button data-inst="wavetable" class="inst-btn">Wavetable</button>
+            <button data-inst="sampler" class="inst-btn">Sampler</button>
+          </div>
         </div>
       </aside>
 
@@ -81,6 +88,6 @@
     <div id="pluginContainer"></div>
   </div>
 
-  <script src="main.js" type="module"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
