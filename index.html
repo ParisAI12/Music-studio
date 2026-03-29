@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NEON STUDIO PRO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">NEON STUDIO PRO</div>
+        <div class="subtitle">browser DAW • multi-instrument • pro features</div>
+      </div>
+
+      <div class="transport">
+        <button id="playBtn" class="btn play">▶</button>
+        <button id="stopBtn" class="btn stop">■</button>
+        <div class="bpm">
+          <label>BPM</label>
+          <input id="bpmInput" type="number" min="40" max="240" value="120" />
+        </div>
+        <div class="clock-led" id="clockLed"></div>
+      </div>
+
+      <div class="global-controls">
+        <button id="savePattern" class="btn small">Save Pattern</button>
+        <button id="loadPattern" class="btn small">Load Pattern</button>
+        <button id="toggleMidi" class="btn small">MIDI</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="left-panel">
+        <div class="tracks-list" id="tracksList"></div>
+        <div class="instruments-palette">
+          <h4>Instruments</h4>
+          <button data-inst="piano" class="inst-btn">Grand Piano</button>
+          <button data-inst="epiano" class="inst-btn">Electric Piano</button>
+          <button data-inst="analog" class="inst-btn">Analog Poly</button>
+          <button data-inst="fm" class="inst-btn">FM Lead</button>
+          <button data-inst="bass" class="inst-btn">Bass Synth</button>
+          <button data-inst="drum" class="inst-btn">Drum Sampler</button>
+          <button data-inst="pad" class="inst-btn">Orchestral Pad</button>
+          <button data-inst="sampler" class="inst-btn">Sampler</button>
+        </div>
+      </aside>
+
+      <section class="center-panel">
+        <div class="arranger">
+          <div class="timeline" id="timeline"></div>
+          <div class="tracks" id="tracks"></div>
+        </div>
+
+        <div class="editor">
+          <div class="sequencer" id="sequencer"></div>
+          <div class="piano-roll" id="pianoRoll"></div>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="mixer" id="mixer"></div>
+
+        <div class="fx-rack">
+          <h4>Master FX</h4>
+          <div class="fx-controls">
+            <label>Reverb Mix <input id="masterReverbMix" type="range" min="0" max="1" step="0.01" value="0.25"></label>
+            <label>Delay Time <input id="masterDelayTime" type="range" min="0" max="1" step="0.01" value="0.25"></label>
+            <label>Master Limiter <input id="masterLimiter" type="range" min="0.2" max="1" step="0.01" value="0.95"></label>
+          </div>
+        </div>
+
+        <div class="visuals">
+          <canvas id="spectrum" width="320" height="120"></canvas>
+          <canvas id="osc" width="320" height="120"></canvas>
+        </div>
+      </aside>
+    </main>
+
+    <div id="pluginContainer"></div>
+  </div>
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>
